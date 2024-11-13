@@ -6,32 +6,26 @@
 #    By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 11:45:36 by abqaderi          #+#    #+#              #
-#    Updated: 2024/10/28 11:45:47 by abqaderi         ###   ########.fr        #
+#    Updated: 2024/11/13 14:53:25 by abqaderi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
-NAME = libft.a
-SRC =
-OBJS = $(SRC:.c=.o)
+SRCS = ft_pirnt_char.c ft_print_hex.c ft_print_number.c ft_print_pointer.c \
+		ft_print_string.c ft_print_unsigned.c ft_printf.c
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-			$(AR) $(NAME) $(OBJS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM)	$(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-		$(RM)	$(NAME)
+	rm -f $(NAME)
 
-re: fclean $(NAME)
-
-.PHONY: all clean fclean re
+re: fclean all
