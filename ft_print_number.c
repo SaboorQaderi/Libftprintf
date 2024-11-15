@@ -6,7 +6,7 @@
 /*   By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:21:26 by abqaderi          #+#    #+#             */
-/*   Updated: 2024/11/13 14:24:27 by abqaderi         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:03:48 by abqaderi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	ft_print_number(int n)
 	str = ft_itoa(n);
 	if (!str)
 		return (0);
-	ft_putstr_fd(str, 1);
-	len = ft_strlen(str);
+	len = ft_putstr_fd(str, 1);
 	free(str);
 	return (len);
 }

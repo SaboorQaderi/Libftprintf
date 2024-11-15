@@ -6,7 +6,7 @@
 /*   By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:16:24 by abqaderi          #+#    #+#             */
-/*   Updated: 2024/11/13 14:21:03 by abqaderi         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:06:18 by abqaderi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	ft_print_pointer(void *ptr)
 
 	count = 0;
 	address = (unsigned long)ptr;
-	ft_putstr_fd("0x", 1);
-	count += 2;
+	count += ft_putstr_fd("0x", 1);
 	if (address == 0)
-		count += ft_print_char('0');
+		count += ft_putchar_fd('0', 1);
 	else
 		count += ft_print_hex(address, 'x');
 	return (count);

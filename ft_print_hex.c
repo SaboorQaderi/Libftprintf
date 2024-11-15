@@ -6,7 +6,7 @@
 /*   By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:28:05 by abqaderi          #+#    #+#             */
-/*   Updated: 2024/11/13 14:33:45 by abqaderi         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:05:38 by abqaderi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_print_hex(unsigned int n, char format)
 		hex_digits = "0123456789ABCDEF";
 	if (n == 0)
 	{
-		count += ft_print_char('0');
+		count += ft_putchar_fd('0', 1);
 		return (count);
 	}
 	i = 8;
