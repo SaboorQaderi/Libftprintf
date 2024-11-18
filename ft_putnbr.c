@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:54:18 by abqaderi          #+#    #+#             */
-/*   Updated: 2024/11/18 17:06:17 by abqaderi         ###   ########.fr       */
+/*   Created: 2024/11/13 14:21:26 by abqaderi          #+#    #+#             */
+/*   Updated: 2024/11/18 16:53:23 by abqaderi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+void	ft_putnbr(int n, int fd, int *count)
 {
-	ft_printf("Character: %c\n", 'A');
-	ft_printf("String: %s\n", "Hello, world!");
-	ft_printf("Pointer: %p\n", main);
-	ft_printf("Decimal: %d\n", 42);
-	ft_printf("Integer: %i\n", -42);
-	ft_printf("Unsigned: %u\n", 3000000000U);
-	ft_printf("Hex (lower): %x\n", 255);
-	ft_printf("Hex (upper): %X\n", 255);
-	ft_printf("Percent: %%\n");
-	return (0);
+	if (n == -2147483648)
+	{
+		*count += ft_putstr("-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		*count += ft_putchar('-', fd);
+		n = -n;
+	}
+	if (n > 9)
+		ft_putnbr(n / 10, fd, count);
+	*count += ft_putchar((n % 10) + '0', fd);
 }

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:16:24 by abqaderi          #+#    #+#             */
-/*   Updated: 2024/11/13 18:06:18 by abqaderi         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:20:05 by abqaderi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_pointer(void *ptr)
+int	ft_putptr(void *ptr)
 {
 	unsigned long	address;
 	int				count;
 
-	count = 0;
 	address = (unsigned long)ptr;
-	count += ft_putstr_fd("0x", 1);
-	if (address == 0)
-		count += ft_putchar_fd('0', 1);
-	else
-		count += ft_print_hex(address, 'x');
+	if (!ptr)
+	{
+		count = ft_putstr("0x0", 1);
+		return (count);
+	}
+	count = ft_putstr("0x0", 1);
+	count += ft_put_hex(address, 'x');
 	return (count);
 }
