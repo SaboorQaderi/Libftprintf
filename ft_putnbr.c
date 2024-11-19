@@ -6,7 +6,7 @@
 /*   By: abqaderi <abqaderi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:21:26 by abqaderi          #+#    #+#             */
-/*   Updated: 2024/11/18 16:53:23 by abqaderi         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:38:38 by abqaderi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,20 @@ void	ft_putnbr(int n, int fd, int *count)
 {
 	if (n == -2147483648)
 	{
-		*count += ft_putstr("-2147483648", 11);
+		ft_putchar('-', fd);
+		(*count)++;
+		ft_putstr("2147483648");
+		*count += 10;
 		return ;
 	}
 	if (n < 0)
 	{
-		*count += ft_putchar('-', fd);
+		ft_putchar('-', fd);
+		(*count)++;
 		n = -n;
 	}
-	if (n > 9)
+	if (n >= 10)
 		ft_putnbr(n / 10, fd, count);
-	*count += ft_putchar((n % 10) + '0', fd);
+	ft_putchar((n % 10) + '0', fd);
+	(*count)++;
 }
